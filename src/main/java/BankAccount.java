@@ -1,4 +1,4 @@
-package com.bogotobogo;
+package com.bogotobogot;
 
 public class BankAccount {
 
