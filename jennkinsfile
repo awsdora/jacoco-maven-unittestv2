@@ -1,0 +1,25 @@
+pipeline {
+  agent any
+    stages {
+        stage('Get Sourcecode') {
+            steps {
+                sh 'rm -rf jacoco-maven-unittestv2'
+                sh 'mvn --version'
+                sh 'git clone https://github.com/awsdora/jacoco-maven-unittestv2.git'
+            }
+        }
+        stage('Install') {
+            steps {
+                 sh 'cd $WORKSPACE/jacoco-maven-unittestv2/ && mvn install'
+            }
+        }
+        stage('Sonar') {
+            steps {
+                 sh 'cd $WORKSPACE/jacoco-maven-unittestv2/ && sonar-scanner -Dsonar.login=e5f3e4c9ff8bc7f1796a1b5e642ebea226980e05'
+            
+            }
+            
+        }
+        
+    }    
+}
