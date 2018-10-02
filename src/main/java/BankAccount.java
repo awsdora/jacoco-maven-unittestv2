@@ -16,12 +16,5 @@ public class BankAccount {
             balance -= amount;
             return amount;
           }
-           public double deposit(double amount) {
-              if(amount >= 0) {
-                  this.balance = this.balance + amount;
-              } else {
-                  System.out.println("Depositing amount should not be negative");
-              }
-		   return this.balance;
-		   }
+
 }
